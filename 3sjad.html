@@ -324,9 +324,7 @@
     <source src="Darling2.ogg" type="audio/ogg">
     Your browser does not support the audio element.
   </audio>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
     $(document).ready(function () {
       $('.container').mouseenter(function () {
@@ -338,45 +336,25 @@
           top: 0
         }, 'slow');
       });
-    });
 
-    $(document).ready(function () {
       $('.container').click(function () {
-        for (let i = 0; i < 50; i++) {
+        for (let i = 0; i < 100; i++) {
           let confetti = $('<div class="confetti"></div>');
           confetti.css({
             top: Math.random() * 100 + '%',
             left: Math.random() * 100 + '%',
-            backgroundColor: '#' + Math.floor(Math.random() * 16777215).toString(16)
+            backgroundColor: '#' + Math.floor(Math.random() * 16777215).toString(16),
+            width: Math.random() * 10 + 5 + 'px',
+            height: Math.random() * 10 + 5 + 'px',
+            animationDuration: Math.random() * 2 + 1 + 's'
           });
           $('body').append(confetti);
-          setTimeout(() => confetti.remove(), 1000);
+          setTimeout(() => confetti.remove(), 2000);
         }
       });
-    });
-    $(document).ready(function () {
-  $('.container').click(function () {
-    for (let i = 0; i < 100; i++) {
-      let confetti = $('<div class="confetti"></div>');
-      confetti.css({
-        top: Math.random() * 100 + '%',
-        left: Math.random() * 100 + '%',
-        backgroundColor: '#' + Math.floor(Math.random() * 16777215).toString(16),
-        width: Math.random() * 10 + 5 + 'px', // Random width between 5px and 15px
-        height: Math.random() * 10 + 5 + 'px', // Random height between 5px and 15px
-        animationDuration: Math.random() * 2 + 1 + 's' // Random animation duration between 1s and 3s
-      });
-      $('body').append(confetti);
-      setTimeout(() => confetti.remove(), 2000); // Adjust the timeout to match the longest animation duration
-    }
-  });
-});
 
-
-    $(document).ready(function () {
       $('body').one('click', function () {
         $('.background-gif').fadeIn(1000);
-        // Play the background music on the first click
         var audio = document.getElementById('background-music');
         if (audio.paused) {
           audio.play().then(() => {
